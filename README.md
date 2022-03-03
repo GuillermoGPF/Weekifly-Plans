@@ -17,38 +17,82 @@ Plans platform, in which users recommend plans to do in your area or in other pl
 
 ## Endpoints List
 
-# Client
 Auth Routes:
 
-| Method   | #GET    | #POST   | #GET   | #POST  | #GET    |
-| -------- | ------- | ------- | ------ | ------ | ------- |
-| Endpoint | /signup | /signup | /login | /login | /logout |
-| Action   | Sign up | Sign up | Log in | Log in | Log out |
+| HTTP Method | URI path | Description |
+| ----------- | -------- | ----------- |
+| GET         | /signup  | Sign up     |
+| POST        | /signup  | Sign up     | 
+| GET         | /login   | Log in      |
+| POST        | /login   | Log in      |
+| GET         | /logout  | Log out     |
+ 
 
 User Routes:
 
-| Method   | #GET           | #GET        | #GET      | #POST     | #GET        |
-| -------- | -------------- | ----------- | --------- | --------- | ----------- |
-| Endpoint | /              | /:id        | /:id/edit | /:id/edit | /:id/delete |
-| Action   | Show all users | User detail | Edit user | Edit user | Delete user |
+| HTTP Method | URI path    | Description    |
+| ----------- | ----------- | -------------- |
+| GET         | /           | Show all users |
+| GET         | /:id        | User detail    | 
+| GET         | /:id/edit   | Edit user      |
+| POST        | /:id/edit   | Edit user      |
+| POST        | /:id/delete | Delete user    |
+
 
 Plans Routes:
 
-| Method   | #GET           | #GET        | #POST              | #GET      | #POST     | #GET        |
-| -------- | -------------- | ----------- | ------------------ | --------- | --------- | ----------- |
-| Endpoint | /              | /:id        | /:id               | /:id/edit | /:id/edit | /:id/delete |
-| Action   | Show all plans | Plan detail | Save plan and send | Edit plan | Edit plan | Delete plan |
+| HTTP Method | URI path    | Description    |
+| ----------- | ----------- | ---------------|
+| GET         | /           | Show all plans |
+| POST        | /           | Create plan    | 
+| GET         | /:id        | Plan detail    | 
+| GET         | /:id/edit   | Edit plan      |
+| POST        | /:id/edit   | Edit plan      |
+| POST        | /:id/delete | Delete plan    |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# Server
 
-Api Routes:
+## Models List
 
-| Method  | #GET    | #POST   |
-| ------- | ------- | ------- |
-|         |         |         |
-|         |         |         |
+User Model:
+
+| Model       | Property and Data type                  |
+| ----------- | --------------------------------------- |
+| Username    | Type: String / Required                 |
+| Description | Type: String / Required / Minlength: 10 |
+| Email       | Type: String / Required                 |
+| Password    | Type: String / Required                 |
+| Avatar      | Type: String / Required                 |
+| Birthday    | Type: Date                              |
+
+Plans Model:
+
+| Model       | Property and Data type                  |
+| ----------- | --------------------------------------- |
+| Name        | Type: String / Required                 |
+| Description | Type: String / Required / Minlength: 10 |
+| Image       | Type: String / Required                 |
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+## Pages and Components List
+
+| Pages    | Components                                    |
+| -------- | --------------------------------------------- |
+| Home     | Login / Signup / Button                       |
+| Plans    | Navbar / Nav / Card / Modal / Footer / Button |
+| Profile  | Navbar / Nav / Card / Modal / Footer / Button |
+| Settings | Navbar / Nav / Card / Modal / Footer / Button |
+| Users    | Navbar / Nav / Card / Modal / Footer / Button |
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+## Context List
+
+- Auth
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

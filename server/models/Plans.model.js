@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model } = require('mongoose')
 
 const plansSchema = new Schema(
 {
@@ -15,11 +15,15 @@ const plansSchema = new Schema(
         type: String,
         required: [true, 'La imagen es obligatoria'],
     },
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 },
 {
     timestamps: true
 })
 
-const Plans = model("Plans", plansSchema)
+const Plans = model('Plans', plansSchema)
 
 module.exports = Plans

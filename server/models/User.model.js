@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema(
 {
@@ -11,15 +11,31 @@ const userSchema = new Schema(
         required: [true, 'La descripción es obligatoria'],
         minlength: [10, 'La descripción debe tener mínimo 10 carácteres']
     },
-    image: {
+    email: {
         type: String,
-        required: [true, 'La imagen es obligatoria'],
+        required: [true, 'El correo elctrónico es obligatorio']
+    },
+    password: {
+        type: String,
+        required: [true, 'La contraseña es obligatoria']
+    },
+    avatar: {
+        type: String,
+        required: [true, 'El avatar es obligatorio']
+    },
+    bithday: {
+        type: Date
+    },
+    role: {
+        type: String,
+        enum: ['USER', 'PLANNER', 'ADMIN'],
+        default: 'USER'
     }
 },
 {
     timestamps: true
 })
 
-const User = model("User", userSchema)
+const User = model('User', userSchema)
 
 module.exports = User
