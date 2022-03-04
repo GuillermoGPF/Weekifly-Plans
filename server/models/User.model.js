@@ -8,7 +8,6 @@ const userSchema = new Schema(
     },
     description: {
         type: String,
-        required: [true, 'La descripción es obligatoria'],
         minlength: [10, 'La descripción debe tener mínimo 10 carácteres']
     },
     email: {

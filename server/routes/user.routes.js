@@ -9,23 +9,7 @@ router.get('/user', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.post('/plans/create', (req, res) => {
-    const { username, description, email, password, avatar, birthday, role } = req.body
-    User
-        .create({ username, description, email, password, avatar, birthday, role })
-        .then(response => res.json(response))
-        .catch(err => res.status(500).json(err))
-})
-
 router.get('/user/:user_id', (req, res) => {
-    const { user_id } = req.params
-    User
-        .findById(user_id)
-        .then(response => res.json(response))
-        .catch(err => res.status(500).json(err))
-})
-
-router.get('/user/:user_id/edit', (req, res) => {
     const { user_id } = req.params
     User
         .findById(user_id)
@@ -49,7 +33,5 @@ router.post('/user/:user_id/delete', (req, res) => {
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
-
-
 
 module.exports = router

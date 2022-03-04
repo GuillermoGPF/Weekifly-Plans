@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Fiesta",
+        "description": "Fiesta en el local",
+        "image": "https://s1.eestatic.com/2020/07/11/actualidad/actualidad_504460206_155547023_1024x576.jpg",
+        "owner": "user"
+    },
+    {
+        "name": "Concierto",
+        "description": "Concierto en el estadio",
+        "image": "https://www.bbva.com/wp-content/uploads/2020/05/festival2-1920x1180.jpg",
+        "owner": "user"
+    },
+    {
+        "name": "Quedada entre amigos",
+        "description": "Nos vemos a las 6 en el monigote",
+        "image": "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2016/05/167060-solo-tienes-cinco-amigos-verdad-segun-estudio.jpg?itok=kedWMwcQ",
+        "owner": "user"
+    },
+    {
+        "name": "Cena",
+        "description": "Cena en un restaurante",
+        "image": "https://dam.cocinafacil.com.mx/wp-content/uploads/2020/11/cena.jpg",
+        "owner": "user"
+    },
+    {
+        "name": "Subir la montaña",
+        "description": "Vamos al puerto de canencia y lo recorremos",
+        "image": "https://img.freepik.com/foto-gratis/hombre-ayudando-mujer-subir-montana-actividad-senderismo-concepto-trabajo-equipo_45381-465.jpg?size=626&ext=jpg",
+        "owner": "user"
+    },
+    {
+        "name": "Bolos",
+        "description": "Vamos a echarnos unos bolos",
+        "image": "https://media.timeout.com/images/103495260/image.jpg",
+        "owner": "user"
+    }
+]

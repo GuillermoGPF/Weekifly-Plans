@@ -1,0 +1,50 @@
+[
+    {
+        "username": "Juan Pérez",
+        "description": "No tiene",
+        "email": "j@j.com",
+        "avatar": "https://s1.eestatic.com/2020/07/11/actualidad/actualidad_504460206_155547023_1024x576.jpg",
+        "bithday": "6/2/1990",
+        "role": "USER"
+    },
+    {
+        "username": "Guille López",
+        "description": "Algo tiene",
+        "email": "g@g.com",
+        "avatar": "https://www.bbva.com/wp-content/uploads/2020/05/festival2-1920x1180.jpg",
+        "bithday": "7/8/1985",
+        "role": "USER"
+    },
+    {
+        "username": "Jose García",
+        "description": "Más o menos",
+        "email": "jo@jo.com",
+        "avatar": "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2016/05/167060-solo-tienes-cinco-amigos-verdad-segun-estudio.jpg?itok=kedWMwcQ",
+        "bithday": "9/10/2000",
+        "role": "USER"
+    },
+    {
+        "username": "Enrique Camacho",
+        "description": "Ahí va",
+        "email": "e@e.com",
+        "avatar": "https://dam.cocinafacil.com.mx/wp-content/uploads/2020/11/cena.jpg",
+        "bithday": "10/10/2002",
+        "role": "USER"
+    },
+    {
+        "username": "Antonio González",
+        "description": "Sí tiene",
+        "email": "a@a.com",
+        "avatar": "https://img.freepik.com/foto-gratis/hombre-ayudando-mujer-subir-montana-actividad-senderismo-concepto-trabajo-equipo_45381-465.jpg?size=626&ext=jpg",
+        "bithday": "7/3/1995",
+        "role": "USER"
+    },
+    {
+        "username": "David Sanz",
+        "description": "Tiene",
+        "email": "d@d.com",
+        "avatar": "https://media.timeout.com/images/103495260/image.jpg",
+        "bithday": "5/4/1978",
+        "role": "USER"
+    }
+]

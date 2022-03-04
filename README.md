@@ -81,7 +81,7 @@ Plans Model:
 
 | Pages    | Components                                    |
 | -------- | --------------------------------------------- |
-| Home     | Login / Signup / Button                       |
+| Home     | Login / Signup / Brand                        |
 | Plans    | Navbar / Nav / Card / Modal / Footer / Button |
 | Profile  | Navbar / Nav / Card / Modal / Footer / Button |
 | Settings | Navbar / Nav / Card / Modal / Footer / Button |

@@ -1,38 +1,236 @@
+/* Generals */
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .App {
+    font-family: 'Poppins', 'calibri', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    color: grey;
+}
+
+h3 {
+    font-size: 0.8rem;
+    color: grey;
+}
+
+/* Containers */
+.container {
+    margin: 1em auto;
+    padding: 0 2em;
+}
+
+.home {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg {
+    width: 100%;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.home a {
+    font-size: 0.9em;
+    color: #ff6347;
+    margin: 0.5em auto;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home a:hover {
+    color: #b14634;
+}
+
+/* Forms */
+form p {
+    text-align: center;
+    margin: 1em auto;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    margin-bottom: 1em;
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid #ff6347;
+    transition: all 700ms ease-in-out;
+}
+
+label {
+	font-size: 0.8em;
+    color: grey;
+    font-weight: 600;
+    margin-top: 1em;
+}
+
+/* Buttons */
+button[type="submit"] {
+    width: 100%;
+}
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ff6347;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    margin: 1em auto;
+    font-size: 0.8em;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+}
+
+.btn:hover {
+    background-color: #b14634;
+    color: #fff;
+}
+
+.button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    margin: 0 0.3em;
+    color: #ff6347;
+    text-align: center;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+}
+
+.button:hover,
+.button.active {
+    background: none;
+    border: none;
+    color: #b14634;
+}
+
+.button p,
+a p {
+    font-size: 0.5em;
+    font-weight: 700;
+    color: grey;
     text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
+/* Avatars */
+.avatars {
+    width: 420px;
+    margin: 1em auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    justify-content: center;
 }
 
-.App-link {
-    color: #61dafb;
+.avatar {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 500ms ease-in-out;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
+.avatar img {
+    height: 100px;
+}
+
+.avatar.selected,
+.avatar:hover {
+    background-color: rgb(211, 211, 211);
+}
+
+.contact {
+    margin: 1em;
+    padding: 0.3em 1em;
+    background-color: #fff;
+    border: 2px solid #ff6347;
+    border-radius: 0 2em 0 2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 500ms ease-in-out;
+}
+
+.contact img {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    margin-right: 0.5em;
+}
+
+.contact:hover {
+    border-color: #b14634;
+    color: #b14634;
+}
+
+/* Form */
+.formSearch {
+    width: 50%;
+    color: #4EACCE;
+    border-radius: 50px;
+    background-color: #fff;
+    border: solid 2px #4EACCE;
+    padding: 0 1em;
+    margin: 1em auto;
+}
+
+.formSearch input {
+    width: 90%;
+    padding: 0.6em;
+    border: none;
+    color: grey;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .formSearch  {
+        width: 90%;
     }
-    to {
-        transform: rotate(360deg);
-    }
+}
+
+
+/* Cards */
+.card {
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.10);
+    background-color: #fff;
+    z-index: 0;
+    transition: all 500ms ease-in-out;
 }
