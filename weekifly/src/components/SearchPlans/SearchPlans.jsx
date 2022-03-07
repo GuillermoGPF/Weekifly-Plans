@@ -1,5 +1,4 @@
-import './SearchPlans.css'
-import { Form, Button, Card } from "react-bootstrap"
+import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,7 +11,7 @@ const SearchPlans = ({ filterPlans }) => {
     return (
         <Form className='formSearch'>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
-            <input type={"search"} placeholder={"Busca y encuentra tu plan"} onChange={handleInput}></input>
+            <input type={'search'} placeholder={'Busca y encuentra tu plan'} onChange={handleInput}></input>
         </Form>
     )
 }

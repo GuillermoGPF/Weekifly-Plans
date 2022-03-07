@@ -1,10 +1,12 @@
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import Footer from '../components/Footer/Footer'
 import Navbar from '../components/Navbar/Navbar'
+import MyModal from '../components/MyModal/MyModal'
+import { AuthContext } from './../context/auth.context'
 
 const Profile = () => {
     return (
-        <div className='bg'>
+        <>
             <Navbar />
             <Container>
                 <Row>
@@ -17,8 +19,9 @@ const Profile = () => {
                     </Col>
                 </Row>
             </Container>
+            <MyModal />
             <Footer />
-        </div>
+        </>
     )
 }
 

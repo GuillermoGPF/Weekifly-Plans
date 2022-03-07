@@ -21,10 +21,9 @@ Auth Routes:
 
 | HTTP Method | URI path | Description |
 | ----------- | -------- | ----------- |
-| GET         | /signup  | Sign up     |
 | POST        | /signup  | Sign up     | 
-| GET         | /login   | Log in      |
 | POST        | /login   | Log in      |
+| GET         | /Verify  | Verify      |
 | GET         | /logout  | Log out     |
  
 
@@ -33,8 +32,7 @@ User Routes:
 | HTTP Method | URI path    | Description    |
 | ----------- | ----------- | -------------- |
 | GET         | /           | Show all users |
-| GET         | /:id        | User detail    | 
-| GET         | /:id/edit   | Edit user      |
+| GET         | /:id        | User detail    |
 | POST        | /:id/edit   | Edit user      |
 | POST        | /:id/delete | Delete user    |
 
@@ -44,9 +42,8 @@ Plans Routes:
 | HTTP Method | URI path    | Description    |
 | ----------- | ----------- | ---------------|
 | GET         | /           | Show all plans |
-| POST        | /           | Create plan    | 
-| GET         | /:id        | Plan detail    | 
-| GET         | /:id/edit   | Edit plan      |
+| POST        | /           | Create plan    |
+| GET         | /:id        | Plan detail    |
 | POST        | /:id/edit   | Edit plan      |
 | POST        | /:id/delete | Delete plan    |
 

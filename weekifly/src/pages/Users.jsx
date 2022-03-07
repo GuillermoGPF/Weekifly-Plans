@@ -1,32 +1,36 @@
 import { Col, Container, Row } from 'react-bootstrap'
 import Footer from '../components/Footer/Footer'
 import Navbar from '../components/Navbar/Navbar'
-import { useState } from "react"
-import friends from './../data/friends.json'
-import ResultFriends from '../components/ResultFriends/ResultFriends'
+import MyModal from '../components/MyModal/MyModal'
+import FriendsList from '../components/FriendsList/FriendsList'
 import SearchFriends from './../components/SearchFriends/SearchFriends'
+import friendService from '../services/users.service'
+// import { AuthContext } from './../context/auth.context'
+import { useState, useEffect, useContext } from 'react'
 
 const Users = () => {
+    
+    // const { isLoggedIn } = useContext(AuthContext)
 
-    const data = []
-    friends.map(elm => {
-        data.push(...elm.username)
-    })
+    const [friends, setFriends] = useState([])
+    const [friendsCopy, setCopy] = useState([])
 
-    const [friendsList, setFriendList] = useState(data);
-    const [friendsCopy, setCopy] = useState(data)
+    useEffect(() => loadFriends(), [])
 
-    function filterFriends(str) {
-        let filteredFriends
+    const loadFriends = () => {
+        friendService
+            .getAllUsers()
+            .then(({ data }) => setFriends(data))
+            .catch(err => console.log(err))
+    }
 
-        str ? filteredFriends = friendsCopy.filter(elm => elm.name.includes(str))
-            : filteredFriends = friendsCopy
-
-        setFriendList(filteredFriends)
+    function filterFriends(str, filteredFriends) {
+        str ? filteredFriends = friendsCopy.filter(elm => elm.name.includes(str)) : filteredFriends = friendsCopy
+        setFriends(filteredFriends)
     }
 
     return (
-        <div className='bg'>
+        <>
             <Navbar />
             <Container>
                 <Row>
@@ -34,17 +38,12 @@ const Users = () => {
                         <h2>Amigos</h2>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <SearchFriends filterFriends={filterFriends} />
-                    </Col>
-                </Row>
-                <Row>
-                    <ResultFriends friendsList={friendsList} />
-                </Row>
+                <SearchFriends filterFriends={filterFriends} />
+                <FriendsList friends={friends} />
             </Container>
+            <MyModal />
             <Footer />
-        </div>
+        </>
     )
 }
 

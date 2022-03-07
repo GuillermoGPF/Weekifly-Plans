@@ -1,7 +1,7 @@
 .footer {
     width: 100%;
-    height: 70px;
     position: fixed;
+    padding: 0.5em 0;
     bottom: 0;
     display: none;
     justify-content: space-around;
@@ -9,8 +9,7 @@
     background: #fff;
 }
 
-.footer a,
-.footer button {
+.footer a {
     color: #ff6347;
     text-align: center;
     text-decoration: none;
@@ -18,8 +17,7 @@
     transition: all 500ms ease-in-out;
 }
 
-.footer a:hover,
-.footer button:hover {
+.footer a:hover {
     color: #b14634;
 }
 

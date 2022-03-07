@@ -1,32 +1,36 @@
-import { Button, Card, Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import Footer from '../components/Footer/Footer'
 import Navbar from '../components/Navbar/Navbar'
-import { useState } from "react"
-import planes from './../data/plans.json'
+import MyModal from '../components/MyModal/MyModal'
+import PlansList from '../components/PlansList/PlansList'
 import SearchPlans from './../components/SearchPlans/SearchPlans'
-import ResultPlans from './../components/ResultPlans/ResultPlans'
+import planService from '../services/plans.service'
+// import { AuthContext } from './../context/auth.context'
+import { useState, useEffect, useContext } from 'react'
 
-const Plans = () => {
+const Plans = () => { 
+    
+    // const { isLoggedIn } = useContext(AuthContext)
 
-    const data = []
-    planes.map(elm => {
-        data.push(...elm.name)
-    })
+    const [plans, setPlans] = useState([])
+    const [plansCopy, setCopy] = useState([])
 
-    const [plansList, setPlanList] = useState(data);
-    const [plansCopy, setCopy] = useState(data)
+    useEffect(() => loadPlans(), [])
 
-    function filterPlans(str) {
-        let filteredPlans
+    const loadPlans = () => {
+        planService
+            .getAllPlans()
+            .then(({ data }) => setPlans(data))
+            .catch(err => console.log(err))
+    }
 
-        str ? filteredPlans = plansCopy.filter(elm => elm.name.includes(str))
-            : filteredPlans = plansCopy
-
-        setPlanList(filteredPlans)
+    function filterPlans(str, filteredPlans) {
+        str ? filteredPlans = plansCopy.filter(elm => elm.name.includes(str)) : filteredPlans = plansCopy
+        setPlans(filteredPlans)
     }
 
     return (
-        <div className='bg'>
+        <>
             <Navbar />
             <Container>
                 <Row>
@@ -34,17 +38,12 @@ const Plans = () => {
                         <h2>Planes</h2>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <SearchPlans filterPlans={filterPlans} />
-                    </Col>
-                </Row>
-                <Row>
-                    <ResultPlans plansList={plansList} />
-                </Row>
+                <SearchPlans filterPlans={filterPlans} />
+                <PlansList plans={plans} />
             </Container>
+            <MyModal />
             <Footer />
-        </div>
+        </>
     )
 }
 

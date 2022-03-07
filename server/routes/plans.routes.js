@@ -1,26 +1,22 @@
 const router = require('express').Router()
 const Plans = require('./../models/Plans.model')
 
-router.get('/plans', (req, res) => {
+router.get('/plans/getAllPlans', (req, res) => {
     Plans
          .find()
-        //  .select('name description image owner')
          .then(response => res.json(response))
          .catch(err => res.status(500).json(err))
 })
 
-router.post('/plans/create', (req, res) => {
+router.post('/plans/createPlan', (req, res) => {
     const { name, description, image, owner } = req.body
-   
-    console.log(req.body, "holsss");
-   
     Plans
          .create({ name, description, image, owner })
          .then(response => res.json(response))
          .catch(err => res.status(500).json(err))
 })
 
-router.get('/plans/:plan_id', (req, res) => {
+router.get('/plans/getOnePlan/:plan_id', (req, res) => {
     const { plan_id } = req.params
     Plans
          .findById(plan_id)
@@ -28,7 +24,7 @@ router.get('/plans/:plan_id', (req, res) => {
          .catch(err => res.status(500).json(err))
 })
 
-router.post('/plans/:plan_id/edit', (req, res) => {
+router.post('/plans/getOnePlan/:plan_id/edit', (req, res) => {
     const { plan_id } = req.params
     const { name, description, image, owner } = req.body
     Plans
@@ -37,7 +33,7 @@ router.post('/plans/:plan_id/edit', (req, res) => {
          .catch(err => res.status(500).json(err))
 })
 
-router.post('/plans/:plan_id/delete', (req, res) => {
+router.post('/plans/getOnePlan/:plan_id/delete', (req, res) => {
     const { plan_id } = req.params
     Plans
          .findByIdAndDelete(plan_id)

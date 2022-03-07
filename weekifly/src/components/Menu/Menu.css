@@ -1,6 +1,5 @@
 .menu {
     width: 350px;
-    height: 200px;
     background-color: #fff;
     border-radius: 1em;
     position: fixed;
@@ -24,7 +23,7 @@
     color: #ff6347;
     text-align: center;
     text-decoration: none;
-    margin: 1.5em;
+    margin: 1em 1.5em;
     font-size: 1.2em;
     transition: all 500ms ease-in-out;
 }

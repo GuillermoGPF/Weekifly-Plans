@@ -2,13 +2,13 @@ import { Button, Form } from 'react-bootstrap'
 // import { AuthContext } from './../../context/auth.context'
 // import authService from '../../services/auth.service'
 // import { useNavigate } from 'react-router-dom'
-// import { useState, useContext } from "react"
+// import { useState, useContext } from 'react'
 
 const Login = () => {
 
     // const [loginForm, setLoginForm] = useState({
-    //     password: "",
-    //     email: ""
+    //     password: '',
+    //     email: ''
     // })
 
     // const navigate = useNavigate()
@@ -32,7 +32,7 @@ const Login = () => {
     //     authService
     //                .login(loginForm)
     //                .then(({ data }) => {
-    //                     //console.log("JWT token", data.authToken)
+    //                     //console.log('JWT token', data.authToken)
     //                     storeToken(data.authToken)
     //                     authenticateUser()
     //                     setShowMessage(true)

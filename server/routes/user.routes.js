@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
 
-router.get('/user', (req, res) => {
+router.get('/user/getAllUsers', (req, res) => {
     User
         .find()
         .select('username description email password avatar birthday role')
@@ -9,7 +9,7 @@ router.get('/user', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.get('/user/:user_id', (req, res) => {
+router.get('/user/getOneUser/:user_id', (req, res) => {
     const { user_id } = req.params
     User
         .findById(user_id)
@@ -17,7 +17,7 @@ router.get('/user/:user_id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.post('/user/:user_id/edit', (req, res) => {
+router.post('/user/getOneUser/:user_id/edit', (req, res) => {
     const { user_id } = req.params
     const { username, description, email, password, avatar, birthday, role } = req.body
     User
@@ -26,7 +26,7 @@ router.post('/user/:user_id/edit', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.post('/user/:user_id/delete', (req, res) => {
+router.post('/user/getOneUser/:user_id/delete', (req, res) => {
     const { user_id } = req.params
     User
         .findByIdAndDelete(user_id)

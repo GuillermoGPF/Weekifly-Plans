@@ -8,8 +8,8 @@ const SignupPage = () => {
     return (
         <div className='home'>
             <Container>
-                <Row className='flex'>
-                    <Col>
+                <Row className='d-flex justify-content-center align-items-center'>
+                    <Col md={6}>
                         <Brand></Brand>
                         <div className='avatars'>
                             <div className='avatar'>
@@ -32,7 +32,7 @@ const SignupPage = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col>
+                    <Col md={6}>
                         <Signup />
                         <Link to='/'>Si tienes cuenta, inicia sesión aquí</Link>
                     </Col>

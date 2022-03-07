@@ -2,19 +2,27 @@ import axios from 'axios'
 
 class PlanService {
     constructor() {
-        this.api = axios.create({ baseURL: `http://localhost/server/plans` })
+        this.api = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/plans` })
     }
 
-    getAllplans = () => {
-        return this.api.get('/getAllplans')
+    getAllPlans = () => {
+        return this.api.get('/getAllPlans')
     }
 
     getOnePlan = id => {
         return this.api.get(`/getOnePlan/${id}`)
     }
 
-    savePlan = plan => {
-        return this.api.post(`/savePlan`, plan)
+    createPlan = plan => {
+        return this.api.post(`/createPlan`, plan)
+    }
+
+    putPlan = id => {
+        return this.api.put(`/getOnePlan/${id}/edit`)
+    }
+
+    deletePlan = id => {
+        return this.api.delete(`/getOnePlan/${id}/delete`)
     }
 }
 
