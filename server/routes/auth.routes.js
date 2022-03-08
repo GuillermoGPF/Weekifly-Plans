@@ -5,10 +5,10 @@ const jwt = require('jsonwebtoken')
 const { isAuthenticated } = require('./../middleware/jwt.middleware')
 const saltRounds = 10
 
-router.post('/auth/signup', (req, res) => {
-    const { email, password, username, avatar } = req.body
+router.post('/signup', (req, res) => {
+    const { email, password, username } = req.body
 
-    if (email === '' || password === '' || username === '' || avatar === '') {
+    if (email === '' || password === '' || username === '') {
         res.status(400).json({ message: 'Introduce tu email, contraseña, nombre de usuario y elige tu avatar' })
         return
     }
@@ -24,11 +24,6 @@ router.post('/auth/signup', (req, res) => {
         return
     }
 
-    if (avatar === '') {
-        res.status(400).json({ message: 'Elige tu avatar' })
-        return
-    }
-
     User
         .findOne({ email })
         .then((foundUser) => {
@@ -39,7 +34,7 @@ router.post('/auth/signup', (req, res) => {
             const salt = bcrypt.genSaltSync(saltRounds)
             const hashedPassword = bcrypt.hashSync(password, salt)
 
-            return User.create({ email, password: hashedPassword, username, avatar })
+            return User.create({ email, password: hashedPassword, username })
         })
         .then((createdUser) => {
             const { email, username, _id } = createdUser
@@ -53,7 +48,7 @@ router.post('/auth/signup', (req, res) => {
         })
 })
 
-router.post('/auth/login', (req, res) => {
+router.post('/login', (req, res) => {
     const { email, password } = req.body
 
     if (email === '' || password === '') {
@@ -71,8 +66,9 @@ router.post('/auth/login', (req, res) => {
             }
 
             if (bcrypt.compareSync(password, foundUser.password)) {
-                const { _id, email, username } = foundUser
-                const payload = { _id, email, username }
+                const { _id, email, username, avatar } = foundUser
+                
+                const payload = { _id, email, username, avatar}
                 const authToken = jwt.sign(
                     payload,
                     process.env.TOKEN_SECRET,
@@ -80,7 +76,7 @@ router.post('/auth/login', (req, res) => {
                 )
                 res.status(200).json({ authToken })
             } else {
-                res.status(401).json({ message: 'No se puede autenticar el usuario' })
+                res.status(401).json({ message: 'No coincide la contraseña' })
             }
         })
         .catch(err => {
@@ -89,7 +85,7 @@ router.post('/auth/login', (req, res) => {
         })
 })
 
-router.get('/auth/verify', isAuthenticated, (req, res) => {
+router.get('/verify', isAuthenticated, (req, res) => {
     res.status(200).json(req.payload)
 })
 

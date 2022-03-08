@@ -1,14 +1,15 @@
 const router = require('express').Router()
 const Plans = require('./../models/Plans.model')
+const { isAuthenticated } = require('../middleware/jwt.middleware')
 
-router.get('/plans/getAllPlans', (req, res) => {
+router.get('/getAllPlans', (req, res) => {
     Plans
          .find()
-         .then(response => res.json(response))
+         .then(response => setTimeout(() => res.json(response), 2000))
          .catch(err => res.status(500).json(err))
 })
 
-router.post('/plans/createPlan', (req, res) => {
+router.post('/createPlan', isAuthenticated, (req, res) => {
     const { name, description, image, owner } = req.body
     Plans
          .create({ name, description, image, owner })
@@ -16,7 +17,7 @@ router.post('/plans/createPlan', (req, res) => {
          .catch(err => res.status(500).json(err))
 })
 
-router.get('/plans/getOnePlan/:plan_id', (req, res) => {
+router.get('/getOnePlan/:plan_id', (req, res) => {
     const { plan_id } = req.params
     Plans
          .findById(plan_id)
@@ -24,7 +25,7 @@ router.get('/plans/getOnePlan/:plan_id', (req, res) => {
          .catch(err => res.status(500).json(err))
 })
 
-router.post('/plans/getOnePlan/:plan_id/edit', (req, res) => {
+router.put('/editOnePlan/:plan_id/edit', (req, res) => {
     const { plan_id } = req.params
     const { name, description, image, owner } = req.body
     Plans
@@ -33,7 +34,7 @@ router.post('/plans/getOnePlan/:plan_id/edit', (req, res) => {
          .catch(err => res.status(500).json(err))
 })
 
-router.post('/plans/getOnePlan/:plan_id/delete', (req, res) => {
+router.delete('/deleteOnePlan/:plan_id/delete', (req, res) => {
     const { plan_id } = req.params
     Plans
          .findByIdAndDelete(plan_id)

@@ -4,7 +4,8 @@ const userSchema = new Schema(
 {
     username: {
         type: String,
-        required: [true, 'El nombre de usuario es obligatorio']
+        required: [true, 'El nombre de usuario es obligatorio'],
+        maxlength: [15, 'El nombre de usuario debe tener como máximo 15 carácteres']
     },
     description: {
         type: String,
@@ -12,7 +13,7 @@ const userSchema = new Schema(
     },
     email: {
         type: String,
-        required: [true, 'El correo elctrónico es obligatorio']
+        required: [true, 'El correo electrónico es obligatorio']
     },
     password: {
         type: String,
@@ -20,7 +21,7 @@ const userSchema = new Schema(
     },
     avatar: {
         type: String,
-        required: [true, 'El avatar es obligatorio']
+        default: 'https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg'
     },
     bithday: {
         type: Date

@@ -1,15 +1,15 @@
 const router = require('express').Router()
 const User = require('../models/User.model')
 
-router.get('/user/getAllUsers', (req, res) => {
+router.get('/getAllUsers', (req, res) => {
     User
         .find()
         .select('username description email password avatar birthday role')
-        .then(response => res.json(response))
+        .then(response => setTimeout(() => res.json(response), 2000))
         .catch(err => res.status(500).json(err))
 })
 
-router.get('/user/getOneUser/:user_id', (req, res) => {
+router.get('/getOneUser/:user_id', (req, res) => {
     const { user_id } = req.params
     User
         .findById(user_id)
@@ -17,7 +17,7 @@ router.get('/user/getOneUser/:user_id', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.post('/user/getOneUser/:user_id/edit', (req, res) => {
+router.put('/editUser/:user_id/edit', (req, res) => {
     const { user_id } = req.params
     const { username, description, email, password, avatar, birthday, role } = req.body
     User
@@ -26,7 +26,7 @@ router.post('/user/getOneUser/:user_id/edit', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.post('/user/getOneUser/:user_id/delete', (req, res) => {
+router.delete('/deleteUser/:user_id/delete', (req, res) => {
     const { user_id } = req.params
     User
         .findByIdAndDelete(user_id)
