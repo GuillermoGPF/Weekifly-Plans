@@ -1,12 +1,13 @@
 import { Button, Col, Container, Row } from 'react-bootstrap'
-import Footer from '../components/Footer/Footer'
-import Navbar from '../components/Navbar/Navbar'
-import MyModal from '../components/MyModal/MyModal'
-import { AuthContext } from './../context/auth.context'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer/Footer'
+import Navbar from '../components/Navbar/Navbar'
+import PlanMessage from '../components/PlanMessage/PlanMessage'
+import { AuthContext } from './../context/auth.context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { PlanMessageContext } from '../context/planMessage.context'
 
 
 const Profile = () => {
@@ -15,8 +16,8 @@ const Profile = () => {
     return (
         <>
             <Navbar />
-            <Container>
-                <Link to="/ajustes">
+            <Container className='hero'>
+                <Link to='/ajustes'>
                     <Button className='edit'>
                         <FontAwesomeIcon icon={faEdit} />
                     </Button>
@@ -34,7 +35,7 @@ const Profile = () => {
                     </Col>
                 </Row>
             </Container>
-            <MyModal />
+            <PlanMessage />
             <Footer />
         </>
     )

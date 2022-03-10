@@ -1,14 +1,15 @@
 import { Card, Col, Container, Row } from 'react-bootstrap'
+import { useState, useEffect, useContext } from 'react'
 import Footer from '../components/Footer/Footer'
 import Navbar from '../components/Navbar/Navbar'
-import MyModal from '../components/MyModal/MyModal'
 import MyPlans from '../components/MyPlans/MyPlans'
-import MyFriends from '../components/MyFriends/MyFriends'
+import FriendCard from '../components/FriendCard/FriendCard'
 import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner'
+import PlanMessage from '../components/PlanMessage/PlanMessage'
 import friendService from '../services/users.service'
 import planService from '../services/plans.service'
 import { AuthContext } from '../context/auth.context'
-import { useState, useEffect, useContext } from 'react'
+import { PlanMessageContext } from '../context/planMessage.context'
 
 
 const Home = () => {
@@ -22,22 +23,23 @@ const Home = () => {
 
     const loadFriends = () => {
         friendService
-            .getAllUsers()
-            .then(({ data }) => setFriends(data))
-            .catch(err => console.log(err))
+                     .getOneUser(user._id)
+                     .then(({ data }) => setFriends(data.friends))
+                     .catch(err => console.log(err))
     }
 
     const loadPlans = () => {
         planService
-            .getAllPlans()
-            .then(({ data }) => setPlans(data))
-            .catch(err => console.log(err))
+                   .getAllPlans()
+                   .then(({ data }) => setPlans(data))
+                   .catch(err => console.log(err))
     }
+
 
     return (
         <>
             <Navbar />
-            <Container>
+            <Container className='hero'>
                 <Row>
                     <Col>
                         <h2>Bienvenid@ {user.username}</h2>
@@ -49,7 +51,17 @@ const Home = () => {
                             <Card.Body>
                                 <Card.Title><h3>Mis amigos</h3></Card.Title>
                                 <div className='homeCard'>
-                                {!friends.length ? <LoadingSpinner /> : <MyFriends friends={friends} />}
+                                    {
+                                        !friends ? <LoadingSpinner /> :
+                                        friends && friends.map(elm => {
+                                            return (
+                                                <Row>
+                                                    <Col md={6} lg={12} key={elm._id}> <FriendCard {...elm} /> </Col>
+                                                </Row>
+                                            )
+                                        })
+                                    }
+                                    
                                 </div>
                             </Card.Body>
                         </Card>
@@ -66,7 +78,7 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
-            <MyModal />
+            <PlanMessage />
             <Footer />
         </>
     )

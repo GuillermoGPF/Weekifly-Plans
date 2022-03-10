@@ -5,14 +5,15 @@ const { isAuthenticated } = require('../middleware/jwt.middleware')
 router.get('/getAllPlans', (req, res) => {
     Plans
          .find()
-         .then(response => setTimeout(() => res.json(response), 2000))
+         .then(response => setTimeout(() => res.json(response), 1000))
          .catch(err => res.status(500).json(err))
 })
 
 router.post('/createPlan', isAuthenticated, (req, res) => {
-    const { name, description, image, owner } = req.body
+    const { name, description, image } = req.body
+    const { _id } = req.payload
     Plans
-         .create({ name, description, image, owner })
+         .create({ name, description, image, owner: _id })
          .then(response => res.json(response))
          .catch(err => res.status(500).json(err))
 })
