@@ -12,7 +12,6 @@ import AdsDetails from '../pages/AdsDetails'
 import NotFound from '../pages/NotFound'
 import EditPlan from '../pages/EditPlan'
 import PrivateRoute from '../routes/PrivateRoute'
-import Chat from '../pages/Chat'
 
 const AppRoutes = () => {
     return (
@@ -47,8 +46,6 @@ const AppRoutes = () => {
             <Route path='/detalles-anuncio/:ad_id' element={<PrivateRoute />}>
                 <Route path='' element={<AdsDetails />} />
             </Route>
-
-            <Route path='/chat' element={<Chat />} />
 
             <Route path='*' element={<PrivateRoute />}>
                 <Route path='*' element={<NotFound />} />
